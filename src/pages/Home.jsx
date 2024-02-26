@@ -108,6 +108,8 @@ function Home() {
       )}
       <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
         <h1 className="font-serif text-3xl"> Advance Calculator</h1>
+        <h3 className="font-serif "> Weird things may occur</h3>
+
         <div className="border-2 border-blue-300 bg-white p-4 rounded-lg shadow-lg">
           <input
             type="text"
@@ -138,6 +140,30 @@ function Home() {
             <Btn btnContent={"<"} handleClick={handleBack} />
           </div>
         </div>
+
+        <footer class="text-gray-600 body-font">
+          <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+            <p class="text-sm text-gray-500 sm:ml-4 sm:pr-4 sm:border-r-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
+              © 2024 Om Surti —
+              <a
+                href="https://www.linkedin.com/in/om-surti-a6800b1b4/"
+                class="text-gray-600 ml-1"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                @Om Surti
+              </a>
+            </p>
+            <a
+              href="https://omsurti.netlify.app/#/"
+              class="text-gray-600 ml-1 pl-2"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              portfolio
+            </a>
+          </div>
+        </footer>
       </div>
     </>
   )
