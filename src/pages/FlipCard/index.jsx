@@ -2,16 +2,14 @@ import { useEffect, useRef, useState } from "react"
 import { motion } from "framer-motion"
 
 function FlipCard() {
+  const [isGameCompleted, setIsGameCompleted] = useState(false)
+  const [stopClick, setStopClick] = useState(false)
   const [cardData, setCardData] = useState([])
   const [score, setScore] = useState(0)
   const [count, setCount] = useState(0)
-  const [stopClick, setStopClick] = useState(false)
   const [moves, setMoves] = useState(0)
-  const [isGameCompleted, setIsGameCompleted] = useState(false)
   const [timer, setTimer] = useState(0)
   const prevCardData = useRef(null)
-
-  const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 
   const flipCard = (index, value) => {
     setCardData(prev => {
@@ -27,6 +25,7 @@ function FlipCard() {
       return updatedCards
     })
   }
+
   const handleReset = () => {
     setCount(0)
     setMoves(0)
@@ -64,9 +63,6 @@ function FlipCard() {
     if (score === 18) {
       setIsGameCompleted(true)
     }
-  }, [score])
-
-  useEffect(() => {
     const interval = setInterval(() => {
       if (!isGameCompleted && moves > 0) {
         setTimer(prevTimer => prevTimer + 1)
@@ -74,23 +70,14 @@ function FlipCard() {
     }, 1000)
 
     return () => clearInterval(interval)
-  }, [isGameCompleted, moves])
+  }, [isGameCompleted, moves, score])
 
   return (
     <div className="container justify-center items-center ">
-      <div className="flex justify-around items-center my-5 mx-auto max-w-md">
-        <div className="flex border-2 p-2">
-          <h1 className="text-xl pr-2">{score}</h1>
-          <span class="text-xl font-medium text-gray-900">Score</span>
-        </div>
-        <div className="flex border-2 p-2">
-          <h1 className="text-xl pr-2">{moves}</h1>
-          <span class="text-xl font-medium text-gray-900">Moves</span>
-        </div>
-        <div className="flex border-2 p-2">
-          <h1 className="text-xl pr-2">{timer}</h1>
-          <span className="text-xl font-medium text-gray-900">Sec</span>
-        </div>
+      <div className="flex flex-wrap justify-around items-center my-5 mx-auto max-w-md">
+        <ViewBoard data={score} title="Score" />
+        <ViewBoard data={moves} title="Moves" />
+        <ViewBoard data={timer} title="Sec" />
         <div className="flex">
           <button
             class={`bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded ${
@@ -105,8 +92,11 @@ function FlipCard() {
       </div>
       <div className="container max-w-md m-5 mx-auto px-4 py-8 border-2 ">
         {isGameCompleted ? (
-          <div className="text-center">
+          <div className="text-center ">
             <h2>Congratulations! You have won the game!</h2>
+            <h2>
+              Your total moves are {moves} in {timer} seconds
+            </h2>
             <button
               class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded mt-5"
               onClick={() => {
@@ -150,7 +140,7 @@ function FlipCard() {
                   transition={{ duration: 0.5 }}
                   style={{ backfaceVisibility: "hidden" }}
                 >
-                  {data.data}
+                  {/* {data.data} */}
                 </motion.div>
               </motion.div>
             ))}
@@ -163,6 +153,8 @@ function FlipCard() {
 
 export default FlipCard
 
+const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
+
 const generateCardData = value => {
   const totalCards = value.x * value.y
   const array = []
@@ -172,4 +164,13 @@ const generateCardData = value => {
   }
   array.sort(() => Math.random() - 0.5)
   return array
+}
+
+const ViewBoard = ({ data, title }) => {
+  return (
+    <div className="flex border-2 p-1">
+      <h1 className="text-xl pr-2">{data}</h1>
+      <span class="text-xl font-medium text-gray-900">{title}</span>
+    </div>
+  )
 }
