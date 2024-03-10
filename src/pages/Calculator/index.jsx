@@ -3,7 +3,7 @@ import ConfirmationBox from "./components/Confirmation"
 import ValueDialog from "./components/ValueDialog"
 import Cursor from "./components/Cursors"
 
-function Home() {
+function Calculator() {
   const [expression, setExpression] = useState("")
   const [showValueConfirmation, setShowValueConfirmation] = useState(false)
   const [showConfirmation, setShowConfirmation] = useState(false)
@@ -106,9 +106,9 @@ function Home() {
           onCancel={() => setShowValueConfirmation(false)}
         />
       )}
-      <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
+      <div className="flex flex-col items-center justify-center h-3/6 mt-10">
         <h1 className="font-serif text-3xl"> Advance Calculator</h1>
-        <h3 className="font-serif "> Weird things may occur</h3>
+        <h4 className="font-serif "> Weird things may occur</h4>
 
         <div className="border-2 border-blue-300 bg-white p-4 rounded-lg shadow-lg">
           <input
@@ -140,36 +140,12 @@ function Home() {
             <Btn btnContent={"<"} handleClick={handleBack} />
           </div>
         </div>
-
-        <footer class="text-gray-600 body-font">
-          <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
-            <p class="text-sm text-gray-500 sm:ml-4 sm:pr-4 sm:border-r-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
-              © 2024 Om Surti —
-              <a
-                href="https://www.linkedin.com/in/om-surti-a6800b1b4/"
-                class="text-gray-600 ml-1"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                @Om Surti
-              </a>
-            </p>
-            <a
-              href="https://omsurti.netlify.app/#/"
-              class="text-gray-600 ml-1 pl-2"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              portfolio
-            </a>
-          </div>
-        </footer>
       </div>
     </>
   )
 }
 
-export default Home
+export default Calculator
 
 const Btn = ({ btnContent, handleClick }) => {
   return (
