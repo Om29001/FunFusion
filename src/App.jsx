@@ -5,6 +5,8 @@ import Spinner from "./atoms/Spinner"
 const Home = lazy(() => import("./pages/Home"))
 const Calculator = lazy(() => import("./pages/Calculator"))
 const FlipCard = lazy(() => import("./pages/FlipCard"))
+const Tictactoe = lazy(() => import("./pages/Tictactoe"))
+
 const Error = lazy(() => import("./pages/Error"))
 
 const Header = lazy(() => import("./atoms/Header"))
@@ -37,6 +39,14 @@ function App() {
           element={
             <Suspense fallback={<Spinner />}>
               <FlipCard />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/tictactoe"
+          element={
+            <Suspense fallback={<Spinner />}>
+              <Tictactoe />
             </Suspense>
           }
         />

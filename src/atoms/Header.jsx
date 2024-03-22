@@ -17,6 +17,9 @@ function Header() {
           <Link to="/memorygame" className="mr-5 hover:text-gray-600">
             Memory Game
           </Link>
+          <Link to="/tictactoe" className="mr-5 hover:text-gray-600">
+            Tic-tac-toe
+          </Link>
         </nav>
       </div>
       <hr />
