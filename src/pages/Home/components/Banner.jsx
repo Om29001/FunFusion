@@ -15,7 +15,7 @@ function Banner() {
           </svg>
 
           <h1 className="text-gray-900 font-medium title-font tracking-wider text-xl mb-2">
-            Welcome to FunFusion,
+            Welcome to FunFusion, a weekend project
           </h1>
           <p className="leading-relaxed text-lg z-10">
             A creation born from my passion for coding and humor! Embark on a
@@ -26,7 +26,9 @@ function Banner() {
             spark laughter and ignite imagination. Join me in this adventure,
             where every click brings a new discovery and every laugh is a
             testament to the power of fun. Let's explore, laugh, and create
-            unforgettable memories together at FunFusion!
+            unforgettable memories together at FunFusion, my weekend project!
+            Every week or alternate week, I aim to add new projects to keep the
+            fun going.
           </p>
           <span class="inline-block h-1 w-10 rounded bg-orange-500 mt-8 mb-2"></span>
           <h1 class="text-gray-900 font-medium title-font tracking-wider text-xl">
