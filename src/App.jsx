@@ -6,6 +6,7 @@ const Home = lazy(() => import("./pages/Home"))
 const Calculator = lazy(() => import("./pages/Calculator"))
 const FlipCard = lazy(() => import("./pages/FlipCard"))
 const Tictactoe = lazy(() => import("./pages/Tictactoe"))
+const CoinFlip = lazy(() => import("./pages/CoinFlip"))
 
 const Error = lazy(() => import("./pages/Error"))
 
@@ -47,6 +48,14 @@ function App() {
           element={
             <Suspense fallback={<Spinner />}>
               <Tictactoe />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/coinflip"
+          element={
+            <Suspense fallback={<Spinner />}>
+              <CoinFlip />
             </Suspense>
           }
         />

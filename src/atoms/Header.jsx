@@ -20,6 +20,9 @@ function Header() {
           <Link to="/tictactoe" className="mr-5 hover:text-gray-600">
             Tic-tac-toe
           </Link>
+          <Link to="/coinflip" className="mr-5 hover:text-gray-600">
+            Coin Flip
+          </Link>
         </nav>
       </div>
       <hr />
