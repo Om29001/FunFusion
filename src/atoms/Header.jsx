@@ -23,6 +23,9 @@ function Header() {
           <Link to="/coinflip" className="mr-5 hover:text-gray-600">
             Coin Flip
           </Link>
+          <Link to="/sequence" className="mr-5 hover:text-gray-600">
+            Sequence Follower
+          </Link>
         </nav>
       </div>
       <hr />

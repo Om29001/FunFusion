@@ -7,6 +7,7 @@ const Calculator = lazy(() => import("./pages/Calculator"))
 const FlipCard = lazy(() => import("./pages/FlipCard"))
 const Tictactoe = lazy(() => import("./pages/Tictactoe"))
 const CoinFlip = lazy(() => import("./pages/CoinFlip"))
+const SequenceFollower = lazy(() => import("./pages/SequenceFollower"))
 
 const Error = lazy(() => import("./pages/Error"))
 
@@ -56,6 +57,14 @@ function App() {
           element={
             <Suspense fallback={<Spinner />}>
               <CoinFlip />
+            </Suspense>
+          }
+        />{" "}
+        <Route
+          path="/sequence"
+          element={
+            <Suspense fallback={<Spinner />}>
+              <SequenceFollower />
             </Suspense>
           }
         />
