@@ -63,26 +63,6 @@ function TextEditor() {
           ))}
         </div>
         <div>
-          <h6>Mis</h6>
-
-          <div className="flex items-center">
-            <input
-              id="default-radio-1"
-              type="checkbox"
-              name="reverse"
-              checked={reverse}
-              className="w-4 h-400 text-sm"
-              onChange={() => setReverse(prev => !prev)}
-            />
-            <label
-              htmlFor="default-radio-1"
-              className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-            >
-              Reverse
-            </label>
-          </div>
-        </div>
-        <div>
           <h6>Styles 2</h6>
           {Object.keys(styles2).map((style, index) => (
             <div className="flex items-center mb-4" key={index}>
@@ -112,6 +92,37 @@ function TextEditor() {
               </label>
             </div>
           ))}
+        </div>
+        <div>
+          <h6>Mis</h6>
+
+          <div className="flex items-center">
+            <input
+              id="default-radio-1"
+              type="checkbox"
+              name="reverse"
+              checked={reverse}
+              className="w-4 h-400 text-sm"
+              onChange={() => setReverse(prev => !prev)}
+            />
+            <label
+              htmlFor="default-radio-1"
+              className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            >
+              Reverse
+            </label>
+          </div>
+          <button
+            className="bg-blue-500 text-sm hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded-full"
+            onClick={() => {
+              setProcessedText(prev => {
+                setText(prev)
+                return text
+              })
+            }}
+          >
+            Swap text
+          </button>
         </div>
       </div>
 
