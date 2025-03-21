@@ -7,7 +7,7 @@ function TextEditor() {
   const [selectedStyle2, setSelectedStyle2] = useState(styles2)
   const [reverse, setReverse] = useState(false)
 
-  const [count, setCount] = useState({ words: 0, letters: 0, sentences: 0 })
+  const [count, setCount] = useState({ words: 0, characters: 0, sentences: 0 })
   const process = useCallback(
     data => {
       let processedText = data ?? text
@@ -136,7 +136,7 @@ function TextEditor() {
         placeholder="Write your thoughts above and see here..."
         value={processedText}
       />
-      <span className="text-sm text-gray-400">{`Counts : { Words : ${count.words} Letters : ${count.letters} Sentences : ${count.sentences} }`}</span>
+      <span className="text-sm text-gray-400">{`Counts : { Words : ${count.words} Characters : ${count.characters} Sentences : ${count.sentences} }`}</span>
     </div>
   )
 }
@@ -159,6 +159,11 @@ const styles = {
   },
 }
 const styles2 = {
+  none: {
+    label: "None",
+    selected: true,
+    todo: input => input,
+  },
   uppercase: {
     label: "Uppercase",
     selected: false,
@@ -172,7 +177,7 @@ const styles2 = {
   capitalize: {
     label: "Capitalize",
     selected: false,
-    todo: input => input.replace(/\b\w/g, char => char.toUpperCase()), // Capitalizes each word
+    todo: input => input.replace(/\b\w/g, char => char.toUpperCase()),
   },
 }
 const processText = (text, selectedStyle2) => {
@@ -190,7 +195,10 @@ const processText = (text, selectedStyle2) => {
 const callCount = (setCount, text) => {
   const words =
     text === "" ? 0 : text.replace(/\s+/g, " ").trim().split(" ").length
-  const letters = text.replace(/[ \ng]/g, "").length
-  const sentences = text.split(".").length - 1
-  return setCount({ words, letters, sentences })
+  const characters = text.replace(/[\n]/, "").length
+  const sentences = text
+    .split(".")
+    .filter(sentence => sentence.trim().length > 0).length
+
+  return setCount({ words, characters, sentences })
 }
