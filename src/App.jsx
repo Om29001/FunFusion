@@ -8,7 +8,8 @@ const FlipCard = lazy(() => import("./pages/FlipCard"))
 const Tictactoe = lazy(() => import("./pages/Tictactoe"))
 const CoinFlip = lazy(() => import("./pages/CoinFlip"))
 const SequenceFollower = lazy(() => import("./pages/SequenceFollower"))
-
+// const SpinToWin = lazy(() => import("./pages/SpinToWin"))
+const TextEditor = lazy(() => import("./pages/TextEditor"))
 const Error = lazy(() => import("./pages/Error"))
 
 const Header = lazy(() => import("./atoms/Header"))
@@ -68,6 +69,22 @@ function App() {
             </Suspense>
           }
         />
+        <Route
+          path="/texteditor"
+          element={
+            <Suspense fallback={<Spinner />}>
+              <TextEditor />
+            </Suspense>
+          }
+        />
+        {/* <Route
+          path="/spin"
+          element={
+            <Suspense fallback={<Spinner />}>
+              <SpinToWin />
+            </Suspense>
+          }
+        /> */}
         <Route path="*" element={<Error />} />
       </Routes>
       <Footer />

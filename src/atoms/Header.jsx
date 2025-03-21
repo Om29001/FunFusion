@@ -26,6 +26,9 @@ function Header() {
           <Link to="/sequence" className="mr-5 hover:text-gray-600">
             Sequence Follower
           </Link>
+          <Link to="/texteditor" className="mr-5 hover:text-gray-600">
+            Text Editor
+          </Link>
         </nav>
       </div>
       <hr />

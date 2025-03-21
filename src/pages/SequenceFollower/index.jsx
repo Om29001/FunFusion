@@ -103,11 +103,12 @@ function SequenceFollower() {
 
 export default SequenceFollower
 
+// eslint-disable-next-line react/display-name, react/prop-types
 const ViewBoard = memo(({ data, handleClick, isDisabled }) => {
+  // eslint-disable-next-line react/prop-types
   const { value, color } = data
   if (value === undefined || value === null)
     return <div className="flex p-2 min-w-0.5"></div>
-
   return (
     <div
       className={`flex border-2 border-black p-2 min-w-1 min-h-16 ${color}`}
