@@ -29,6 +29,9 @@ function Header() {
           <Link to="/texteditor" className="mr-5 hover:text-gray-600">
             Text Editor
           </Link>
+          <Link to="/random" className="mr-5 hover:text-gray-600">
+            Random
+          </Link>
         </nav>
       </div>
       <hr />

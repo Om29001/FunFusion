@@ -9,6 +9,7 @@ const Tictactoe = lazy(() => import("./pages/Tictactoe"))
 const CoinFlip = lazy(() => import("./pages/CoinFlip"))
 const SequenceFollower = lazy(() => import("./pages/SequenceFollower"))
 // const SpinToWin = lazy(() => import("./pages/SpinToWin"))
+const Random = lazy(() => import("./pages/Random"))
 const TextEditor = lazy(() => import("./pages/TextEditor"))
 const Error = lazy(() => import("./pages/Error"))
 
@@ -60,7 +61,7 @@ function App() {
               <CoinFlip />
             </Suspense>
           }
-        />{" "}
+        />
         <Route
           path="/sequence"
           element={
@@ -74,6 +75,14 @@ function App() {
           element={
             <Suspense fallback={<Spinner />}>
               <TextEditor />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/random"
+          element={
+            <Suspense fallback={<Spinner />}>
+              <Random />
             </Suspense>
           }
         />
